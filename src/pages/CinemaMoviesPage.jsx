@@ -4,20 +4,18 @@ import { useQuery } from 'react-query'
 import { useState } from 'react'
 import MoviesList from '../components/MoviesList'
 
-const PopularMoviesPage = () => {
-  const [page, setPage] = useState(2)
-  const { data, error, isError, isLoading, isSuccess } = useQuery(['popular-movies', {page}], TMDB.getPopularMovies)
-
-  console.log(data)
+const CinemaMoviesPage = () => {
+  const [page, setPage] = useState(1)
+  const { data, error, isError, isLoading, isSuccess } = useQuery(['cinema-movies', {page}], TMDB.getCinemaMovies)
 
   return (
     <Container className="py-3">
-      <h1>What's Popular</h1>
+      <h1>New Movies</h1>
 
       {data && <MoviesList data={data.results} />}
-
+      
     </Container>
   )
 }
 
-export default PopularMoviesPage
+export default CinemaMoviesPage

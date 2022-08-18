@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
-import NewMoviesPage from './pages/NewMoviesPage'
-import PopularMoviesPage from './pages/PopularMoviesPage'
+import CinemaMoviesPage from './pages/CinemaMoviesPage'
 import TopMoviesPage from './pages/TopMoviesPage'
+import PopularMoviesPage from './pages/PopularMoviesPage'
+import GenresPage from './pages/GenresPage'
 import MovieDetailsPage from './pages/MovieDetailsPage'
-import CharacterDetailsPage from './pages/CharacterDetailsPage'
-// import './App.css';
+import PersonDetailsPage from './pages/PersonDetailsPage'
 import './assets/scss/App.scss'
 
 function App() {
@@ -18,12 +19,15 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="*" element={<NotFound />} />
-				<Route path="*" element={<NewMoviesPage />} />
-				<Route path="*" element={<PopularMoviesPage />} />
-				<Route path="*" element={<TopMoviesPage />} />
-				<Route path="*" element={<MovieDetailsPage />} />
-				<Route path="*" element={<CharacterDetailsPage />} />
+				<Route path="/news" element={<CinemaMoviesPage />} />
+				<Route path="/top-rated" element={<TopMoviesPage />} />
+				<Route path="/popular" element={<PopularMoviesPage />} />
+				<Route path="/genres" element={<GenresPage />} />
+				<Route path="/movie" element={<MovieDetailsPage />} />
+				<Route path="/person" element={<PersonDetailsPage />} />
 			</Routes>
+
+			<ReactQueryDevtools />
 		</div>
 	)
 }
