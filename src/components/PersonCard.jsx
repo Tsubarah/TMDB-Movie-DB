@@ -1,15 +1,32 @@
 import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom'
+import ListGroup from 'react-bootstrap/ListGroup'
 
-const PersonCard = ({ person }) => {
+const PersonCard = ({ data }) => {
+	console.log(data)
 	return (
 		<Card className="mb-4">
 			<Card.Body>
-				<Card.Title>{person.name}</Card.Title>
+				<Card.Title>{data.name}</Card.Title>
 				<Card.Text>
-					<p>Born: {person.birthday}</p>
-					<p>Origin: {person.place_of_birth}</p>
-          <p>Work field: {person.known_for_department}</p>
-          <p>{person.biography}</p>
+					<div>
+						<p>Born: {data.birthday}</p>
+						<p>Origin: {data.place_of_birth}</p>
+						<p>Work field: {data.known_for_department}</p>
+						<p>{data.biography}</p>
+					</div>
+					<p>Also in:</p>
+						<ListGroup>
+							{data.credits.cast.map(movie => (
+								<ListGroup.Item
+									key={movie.id}
+									as={Link}
+									to={`/movie/${movie.id}`}
+								>
+									{movie.title}
+								</ListGroup.Item>
+							))}
+						</ListGroup>
 				</Card.Text>
 				{/* <Button variant="primary">Go somewhere</Button> */}
 			</Card.Body>

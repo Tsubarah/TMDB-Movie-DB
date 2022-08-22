@@ -12,7 +12,6 @@ const GenresPage = () => {
     <Container className="py-3">
       <h1>Genres</h1>
 
-      {/* {data && <MoviesList data={data.results} />} */}
       {data && <GenreList data={data} />}
 
     </Container>

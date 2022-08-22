@@ -7,7 +7,7 @@ import MoviesList from '../components/MoviesList'
 
 const TopMoviesPage = () => {
   const [page, setPage] = useState(1)
-  const { data, error, isError, isLoading, isSuccess } = useQuery(['popular-movies', {page}], TMDB.getTopMovies)
+  const { data, error, isError, isLoading, isSuccess } = useQuery(['popular-movies', page ], TMDB.getTopMovies)
   // const { data: topMovies, error, isError, isLoading } = useTopMovies()
 
   return (

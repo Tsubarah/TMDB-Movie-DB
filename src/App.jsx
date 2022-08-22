@@ -23,8 +23,8 @@ function App() {
 				<Route path="/top-rated" element={<TopMoviesPage />} />
 				<Route path="/popular" element={<PopularMoviesPage />} />
 				<Route path="/genres" element={<GenresPage />} />
-				<Route path="/movie" element={<MovieDetailsPage />} />
-				<Route path="/person" element={<PersonDetailsPage />} />
+				<Route path="/movie/:id" element={<MovieDetailsPage />} />
+				<Route path="/person/:id" element={<PersonDetailsPage />} />
 			</Routes>
 
 			<ReactQueryDevtools />

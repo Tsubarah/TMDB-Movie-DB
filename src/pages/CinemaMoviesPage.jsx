@@ -6,7 +6,7 @@ import MoviesList from '../components/MoviesList'
 
 const CinemaMoviesPage = () => {
   const [page, setPage] = useState(1)
-  const { data, error, isError, isLoading, isSuccess } = useQuery(['cinema-movies', {page}], TMDB.getCinemaMovies)
+  const { data, error, isError, isLoading, isSuccess } = useQuery(['cinema-movies', page], TMDB.getCinemaMovies)
 
   return (
     <Container className="py-3">
