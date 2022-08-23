@@ -1,27 +1,32 @@
-import ListGroup from 'react-bootstrap/ListGroup'
-import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 const MoviesList = ({ data }) => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/'
 
   console.log(data)
   return (
-    <ListGroup>
+    <div className='d-flex flex-wrap justify-content-around items-center'>
       {data.map(movie => (
-        <ListGroup.Item
-          action
-          as={Link}
-          key={movie.id}
-          to={`/movie/${movie.id}`}
-        >
-          <div className="card-body d-flex justify-content-between">
-            <Card.Img variant="top" src={BASE_URL + movie.poster_path} />
-            <h4>{movie.title} ({movie.release_date})</h4>
-          </div>
-        </ListGroup.Item>
+        <Card className='bg-dark text-white mb-4' style={{width: '18rem'}}>
+          <Card.Img variant="top" src={BASE_URL + movie.poster_path} />
+          <Card.Body>
+            <Card.Title>{movie.title}</Card.Title>
+            <Card.Text>
+              Release date: {movie.release_date}
+            </Card.Text>
+          </Card.Body>
+          <Button 
+            as={Link}
+            to={`/movie/${movie.id}`}
+            variant="primary"
+          >
+            Read more
+          </Button>
+        </Card>
       ))}
-    </ListGroup>
+    </div>
   )
 }
 

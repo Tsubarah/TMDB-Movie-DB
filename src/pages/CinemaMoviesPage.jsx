@@ -13,7 +13,7 @@ const CinemaMoviesPage = () => {
       <h1>New Movies</h1>
 
       {data && <MoviesList data={data.results} />}
-      
+
     </Container>
   )
 }
