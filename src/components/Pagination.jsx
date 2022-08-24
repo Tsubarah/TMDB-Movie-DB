@@ -1,8 +1,7 @@
 import Button from 'react-bootstrap/Button'
 
-const Pagination = ({ page, handlePage, totalPages }) => {
-  console.log(page)
-  console.log("TOTAL", totalPages)
+const Pagination = ({ page, handlePage, totalPages, genre }) => {
+
   return (
     <div className="d-flex justify-content-between db-dark px-4">
       <Button 
@@ -20,7 +19,7 @@ const Pagination = ({ page, handlePage, totalPages }) => {
 
       <Button 
         disabled={page >= totalPages}
-        onClick={() => {handlePage({ page: Number(page) + 1})}}
+        onClick={() => {handlePage({ page: Number(page) + 1, genre: genre })}}
       >
         Next
       </Button>

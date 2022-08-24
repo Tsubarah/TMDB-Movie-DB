@@ -14,8 +14,8 @@ const PersonCard = ({ data }) => {
 						<p>Origin: {data.place_of_birth}</p>
 						<p>Work field: {data.known_for_department}</p>
 						<p>{data.biography}</p>
+						<p>Also in:</p>
 					</div>
-					<p>Also in:</p>
 						<ListGroup>
 							{data.credits.cast.map(movie => (
 								<ListGroup.Item

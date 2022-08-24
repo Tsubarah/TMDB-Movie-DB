@@ -1,23 +1,26 @@
 import ListGroup from 'react-bootstrap/ListGroup'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import TMDB from '../services/TMDB'
 import { useQuery } from 'react-query'
-// import { useEffect } from 'react'
+
 
 const GenreList = ({ data }) => {
-  const { data: movies, error, isError, isLoading, isSuccess } = useQuery(['MoviesByGenres', { page: 1, genre: "" }], TMDB.discoverMovies)
-
-  const [searchParams, setSearchParams] = useSearchParams({ page: 1, genre: "" })
-
-  const page = searchParams.get('page')
-  const genre = searchParams.get('genre')
-
-  console.log(movies)
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1, genre_id: "", })
   
-  // useEffect(() => {
-  //   setSearchParams({ page: 1, genre: 16 })
-  // }, [movies])
-
+  const page = searchParams.get('page')
+  const genre_id = searchParams.get('genre_id')
+  
+  const navigate = useNavigate()
+  
+  const { data: movies, error, isError, isLoading, isSuccess } = useQuery(['genres-list', { page, genre_id }], TMDB.discoverMovies)
+  
+    
+  // const handleClick = (genre) => {
+  //   setSearchParams({ page: page, genre_id: genre.id})}
+  //   navigate(`/genre/${searchParams}`)
+  // }
+  
+  
   return (
     <ListGroup>
       {data.genres.map(genre => (
@@ -25,7 +28,9 @@ const GenreList = ({ data }) => {
           action
           as={Link}
           key={genre.id}
-          to={`/genre/${genre.id}`}
+          // onClick={handleClick(genre)}
+          // onClick={() => {setSearchParams({ page: page, genre_id: genre.id})}}
+          to={`/genre/${searchParams}`}
         >
           <h4>{genre.name}</h4>
         </ListGroup.Item>

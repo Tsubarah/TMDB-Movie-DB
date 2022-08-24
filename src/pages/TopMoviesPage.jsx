@@ -10,7 +10,7 @@ const TopMoviesPage = () => {
 
   const page = searchParams.get('page')
 
-  const { data, error, isError, isLoading, isSuccess } = useQuery(['popular-movies', { page }], TMDB.getTopMovies)
+  const { data, error, isError, isLoading, isSuccess } = useQuery(['top-movies', { page }], TMDB.getTopMovies)
   // const { data: topMovies, error, isError, isLoading } = useTopMovies()
 
   return (

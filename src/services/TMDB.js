@@ -13,7 +13,6 @@ const adultCont = '&include_adult=false';
 */
 const get = async (endpoint) => {
   const res = await axios.get(endpoint)
-  // console.log(res)
   // console.log(res.data)
 
   return res.data

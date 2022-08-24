@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 import Pagination from './Pagination'
 
 
-const MoviesList = ({ data, handlePage, page }) => {
+const MoviesList = ({ data, handlePage, page, genre }) => {
 
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/'
-
-  console.log("DATA", data)
 
   return (
     <div>
@@ -33,7 +31,7 @@ const MoviesList = ({ data, handlePage, page }) => {
           </Card>
         ))}
       </div>
-      <Pagination page={page} handlePage={handlePage} totalPages={data.total_pages} />
+      <Pagination page={page} handlePage={handlePage} genre={genre} totalPages={data.total_pages} />
     </div>
   )
 }

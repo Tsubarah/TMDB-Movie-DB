@@ -3,8 +3,8 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
-import CinemaMoviesPage from './pages/CinemaMoviesPage'
 import TopMoviesPage from './pages/TopMoviesPage'
+import NowPlayingMoviesPage from './pages/NowPlayingMoviesPage'
 import PopularMoviesPage from './pages/PopularMoviesPage'
 import GenresPage from './pages/GenresPage'
 import GenrePage from './pages/GenrePage'
@@ -20,7 +20,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="*" element={<NotFound />} />
-				<Route path="/news" element={<CinemaMoviesPage />} />
+				<Route path="/news" element={<NowPlayingMoviesPage />} />
 				<Route path="/top-rated" element={<TopMoviesPage />} />
 				<Route path="/popular" element={<PopularMoviesPage />} />
 				<Route path="/genres" element={<GenresPage />} />

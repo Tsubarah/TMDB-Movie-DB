@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import MoviesList from '../components/MoviesList'
 import { useSearchParams } from 'react-router-dom'
 
-const CinemaMoviesPage = () => {
+const NowPlayingMoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
 
   const page = searchParams.get('page')
@@ -27,4 +27,4 @@ const CinemaMoviesPage = () => {
   )
 }
 
-export default CinemaMoviesPage
+export default NowPlayingMoviesPage

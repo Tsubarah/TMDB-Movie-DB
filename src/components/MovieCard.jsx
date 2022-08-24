@@ -11,16 +11,17 @@ const MovieCard = ({ data }) => {
 			<Card.Body>
 				<Card.Title>{data.title}</Card.Title>
 				<Card.Text>
-          <p><strong>Released:</strong> {data.release_date}</p>
-          <p><strong>Overview:</strong> {data.overview}</p>
-          <p><strong>Genres:</strong></p>
-          <ul>
-            {data.genres.map(genre => (
-              <li key={genre.id}>{genre.name}</li>
-              ))}
-          </ul>
-          <p><strong>Actors:</strong></p>
+          <span><strong>Released:</strong> {data.release_date}</span>
+          <br />
+          <span><strong>Overview:</strong> {data.overview}</span>
+          <br />
+          <span><strong>Genres:</strong></span>
+				</Card.Text>
+          {data.genres.map(genre => (
+            <li key={genre.id}>{genre.name}</li>
+          ))}
 
+          <span><strong>Actors:</strong></span>
           <ListGroup>
             {data.credits.cast.map(person => (
               <ListGroup.Item 
@@ -32,7 +33,6 @@ const MovieCard = ({ data }) => {
               </ListGroup.Item>
             ))}
           </ListGroup>
-				</Card.Text>
 				{/* <Button variant="primary">Go somewhere</Button> */}
 			</Card.Body>
       <Card.Img style={{

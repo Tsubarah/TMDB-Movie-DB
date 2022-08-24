@@ -1,10 +1,22 @@
 import Container from 'react-bootstrap/Container'
 import TMDB from '../services/TMDB'
 import { useQuery } from 'react-query'
-import GenreList from '../components/GenreList'
+// import ListGroup from 'react-bootstrap/ListGroup'
+// import { Link } from 'react-router-dom'
+import Dropdown from 'react-bootstrap/Dropdown';
+// import GenreList from '../components/GenreList'
+import { useSearchParams } from 'react-router-dom';
+import MoviesList from '../components/MoviesList';
 
 const GenresPage = () => {
-  const { data, error, isError, isLoading, isSuccess } = useQuery(['all-genres'], TMDB.getAllGenres)
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1, genre_id: "", })
+  const page = searchParams.get('page')
+  const genre_id = searchParams.get('genre_id')
+
+  const { data: genresData} = useQuery(['all-genres'], TMDB.getAllGenres)
+  const { data, error, isError, isLoading, isSuccess } = useQuery(['MoviesByGenres', { page, genre_id }], TMDB.discoverMovies)
+
+  
 
   console.log(data)
 
@@ -12,8 +24,35 @@ const GenresPage = () => {
     <Container className="py-3">
       <h1>Genres</h1>
 
-      {data && <GenreList data={data} />}
+      {/* {data && <GenreList data={data} />} */}
+      {/* <ListGroup>
+        {data?.genres.map(genre => (
+          <ListGroup.Item
+            action
+            as={Link}
+            key={genre.id}
+            // onClick={handleClick(genre)}
+            // onClick={() => {setSearchParams({ page: page, genre_id: genre.id})}}
+            to={`/genre/${genre.id}`}
+          >
+            <h4>{genre.name}</h4>
+        </ListGroup.Item>
+      ))}
+    </ListGroup> */}
+    <Dropdown>
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        Dropdown Button
+      </Dropdown.Toggle>
 
+      <Dropdown.Menu>
+        {genresData?.genres.map(genre => (
+          <Dropdown.Item key={genre.id} onClick={() => {setSearchParams({ page: page, genre_id: genre.id })}}>{genre.name}</Dropdown.Item>
+        ))}
+      </Dropdown.Menu>
+    </Dropdown>
+      {isSuccess && (
+        <MoviesList data={data} handlePage={setSearchParams} genre={genre_id} page={page} />
+      )}
     </Container>
   )
 }
