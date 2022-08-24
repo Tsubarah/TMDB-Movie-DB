@@ -13,6 +13,8 @@ const adultCont = '&include_adult=false';
 */
 const get = async (endpoint) => {
   const res = await axios.get(endpoint)
+  // console.log(res)
+  // console.log(res.data)
 
   return res.data
 }
@@ -34,6 +36,13 @@ const getPopularMovies = ({ queryKey }) => {
   const [_key, { page }] = queryKey
   return get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}${adultCont}`)
 }
+
+const discoverMovies = async ({ queryKey }) => {
+  const [_key, { page, genre_id }] = queryKey;
+  return get(
+      `/discover/movie?api_key=${API_KEY}&language=en-US&popularity.desc${adultCont}&page=${page}&with_genres=${genre_id}`
+  );
+};
 
 const getTopMovies = ({ queryKey }) => {
   const [_key, { page }] = queryKey
@@ -62,4 +71,5 @@ export default {
   getCinemaMovies,
   getAllGenres,
   getPerson,
+  discoverMovies,
 }

@@ -1,12 +1,15 @@
 import Container from 'react-bootstrap/Container'
 import TMDB from '../services/TMDB'
 import { useQuery } from 'react-query'
-import { useState } from 'react'
 import MoviesList from '../components/MoviesList'
+import { useSearchParams } from 'react-router-dom'
 
 const PopularMoviesPage = () => {
-  const [page, setPage] = useState(2)
-  const { data, error, isError, isLoading, isSuccess } = useQuery(['popular-movies', page], TMDB.getPopularMovies)
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
+
+  const page = searchParams.get('page')
+
+  const { data, error, isError, isLoading, isSuccess } = useQuery(['popular-movies', { page }], TMDB.getPopularMovies)
 
   console.log(data)
 
@@ -14,7 +17,12 @@ const PopularMoviesPage = () => {
     <Container className="py-3">
       <h1>What's Popular</h1>
 
-      {data && <MoviesList data={data.results} />}
+      {data && 
+        <MoviesList 
+          data={data} 
+          handlePage={setSearchParams} 
+          page={page} 
+        />}
 
     </Container>
   )
