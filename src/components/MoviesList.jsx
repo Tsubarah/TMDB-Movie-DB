@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import Pagination from './Pagination'
+import Row from 'react-bootstrap/Row'
 
 
 const MoviesList = ({ data, handlePage, page, genre }) => {
@@ -10,14 +11,15 @@ const MoviesList = ({ data, handlePage, page, genre }) => {
 
   return (
     <div>
-      <div className='row gap-4 justify-content-center'>
+      <Row className='gap-4 justify-content-center'>
         {data.results.map(movie => (
-          <Card className='col-4 bg-dark text-white mb-4 p-4' key={movie.id} style={{width: '18rem'}}>
-            <Card.Img variant="top" src={BASE_URL + movie.poster_path} />
+          <Card className='movie-card col-4 bg-dark text-white mb-4 p-4' key={movie.id} style={{width: '18rem'}}>
+            <Card.Img variant="top" src={BASE_URL + movie.poster_path} className='fluid border-radius-8'/>
             <Card.Body>
               <Card.Title>{movie.title}</Card.Title>
               <Card.Text>
                 <span>Release date: {movie.release_date}</span>
+                <br />
                 <span>Rating: {movie.vote_average}</span>
               </Card.Text>
             </Card.Body>
@@ -30,7 +32,7 @@ const MoviesList = ({ data, handlePage, page, genre }) => {
             </Button>
           </Card>
         ))}
-      </div>
+      </Row>
       <Pagination page={page} handlePage={handlePage} genre={genre} totalPages={data.total_pages} />
     </div>
   )

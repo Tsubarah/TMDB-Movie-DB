@@ -1,1 +1,37 @@
 @import 'bootstrap/scss/bootstrap';
+
+.genresList {
+  list-style: none;
+}
+
+.image-container {
+  height: 20rem;
+  object-fit: cover;
+}
+
+.person-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.person-card {
+  width: 35rem;
+  margin: auto;
+}
+
+.cast-member {
+  min-height: 276px;
+}
+
+.cast-img-wrapper {
+  height: 246px;
+}
+
+.movie-card {
+  -webkit-box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
+  -moz-box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
+  box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
+}

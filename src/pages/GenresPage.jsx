@@ -24,35 +24,20 @@ const GenresPage = () => {
     <Container className="py-3">
       <h1>Genres</h1>
 
-      {/* {data && <GenreList data={data} />} */}
-      {/* <ListGroup>
-        {data?.genres.map(genre => (
-          <ListGroup.Item
-            action
-            as={Link}
-            key={genre.id}
-            // onClick={handleClick(genre)}
-            // onClick={() => {setSearchParams({ page: page, genre_id: genre.id})}}
-            to={`/genre/${genre.id}`}
-          >
-            <h4>{genre.name}</h4>
-        </ListGroup.Item>
-      ))}
-    </ListGroup> */}
-    <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
-      </Dropdown.Toggle>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Dropdown Button
+        </Dropdown.Toggle>
 
-      <Dropdown.Menu>
-        {genresData?.genres.map(genre => (
-          <Dropdown.Item key={genre.id} onClick={() => {setSearchParams({ page: page, genre_id: genre.id })}}>{genre.name}</Dropdown.Item>
-        ))}
-      </Dropdown.Menu>
-    </Dropdown>
-      {isSuccess && (
-        <MoviesList data={data} handlePage={setSearchParams} genre={genre_id} page={page} />
-      )}
+        <Dropdown.Menu>
+          {genresData?.genres.map(genre => (
+            <Dropdown.Item key={genre.id} onClick={() => {setSearchParams({ genre_id: genre.id })}}>{genre.name}</Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+        {isSuccess && (
+          <MoviesList data={data} handlePage={setSearchParams} genre={genre_id} page={page} />
+        )}
     </Container>
   )
 }

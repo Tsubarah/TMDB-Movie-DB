@@ -23,8 +23,11 @@ const get = async (endpoint) => {
 //   return get(`/movie/${id}?api_key=${API_KEY}&language=en-US`)
 // }
 
+
+// GÖR OM ALLA TILL ASYNC / AWAIT
+
 const getMovie = (id) => {
-  return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
+  return get(`/movie/${id}?api_key=${API_KEY}${adultCont}&append_to_response=credits`)
 }
 
 const getPerson = (id) => {

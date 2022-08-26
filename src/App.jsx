@@ -7,7 +7,6 @@ import TopMoviesPage from './pages/TopMoviesPage'
 import NowPlayingMoviesPage from './pages/NowPlayingMoviesPage'
 import PopularMoviesPage from './pages/PopularMoviesPage'
 import GenresPage from './pages/GenresPage'
-import GenrePage from './pages/GenrePage'
 import MovieDetailsPage from './pages/MovieDetailsPage'
 import PersonDetailsPage from './pages/PersonDetailsPage'
 import './assets/scss/App.scss'
@@ -24,7 +23,6 @@ function App() {
 				<Route path="/top-rated" element={<TopMoviesPage />} />
 				<Route path="/popular" element={<PopularMoviesPage />} />
 				<Route path="/genres" element={<GenresPage />} />
-				<Route path={`/genre/:id`} element={<GenrePage />} />
 				<Route path="/movie/:id" element={<MovieDetailsPage />} />
 				<Route path="/person/:id" element={<PersonDetailsPage />} />
 			</Routes>

@@ -15,11 +15,18 @@ const MovieCard = ({ data }) => {
           <br />
           <span><strong>Overview:</strong> {data.overview}</span>
           <br />
-          <span><strong>Genres:</strong></span>
 				</Card.Text>
+        <span><strong>Genres:</strong></span>
+        <div className="genresList d-flex">
           {data.genres.map(genre => (
-            <li key={genre.id}>{genre.name}</li>
+            <li 
+              className="p-2"
+              key={genre.id}
+            >
+              {genre.name}
+            </li>
           ))}
+        </div>
 
           <span><strong>Actors:</strong></span>
           <ListGroup>

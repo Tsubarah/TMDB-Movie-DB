@@ -14,7 +14,7 @@ const PersonDetailsPage = () => {
   console.log(person)
   return (
     <Container className="py-3">
-      {person && <PersonCard data={person} />}
+      {person && <PersonCard person={person} />}
     </Container>
   )
 }
