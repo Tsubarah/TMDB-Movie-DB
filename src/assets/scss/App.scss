@@ -25,6 +25,12 @@
   height: 310px;
 }
 
+.cast-image {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+}
+
 .container {
   max-width: 1400px;
 }

@@ -1,6 +1,7 @@
 // import { Link } from 'react-router-dom'
 // import ListGroup from 'react-bootstrap/ListGroup'
 import placeholder from '../../src/assets/images/placeholder_img.webp'
+import moviePlaceholder from '../../src/assets/images/movieImage_placeholder.png'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -65,7 +66,7 @@ const PersonCard = ({ person }) => {
 									variant="top"
 									src={movies?.poster_path
 										? `${imgUrl}${movies.poster_path}`
-										: placeholder} 
+										: moviePlaceholder} 
 									/>
 							</div>
 							<Card.Body>
