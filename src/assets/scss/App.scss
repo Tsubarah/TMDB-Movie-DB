@@ -17,17 +17,16 @@
   border-radius: 8px;
 }
 
-.person-card {
-  width: 35rem;
-  margin: auto;
-}
-
 .cast-member {
-  min-height: 276px;
+  min-height: 488px;
 }
 
-.cast-img-wrapper {
-  height: 246px;
+.cast-img {
+  height: 310px;
+}
+
+.container {
+  max-width: 1400px;
 }
 
 .movie-card {

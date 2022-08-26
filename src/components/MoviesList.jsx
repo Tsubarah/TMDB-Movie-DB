@@ -13,7 +13,7 @@ const MoviesList = ({ data, handlePage, page, genre }) => {
     <div>
       <Row className='gap-4 justify-content-center'>
         {data.results.map(movie => (
-          <Card className='movie-card col-4 bg-dark text-white mb-4 p-4' key={movie.id} style={{width: '18rem'}}>
+          <Card className='movie-card col-lg-3 col-md-4 col-sm-6 col-xs-12 bg-dark text-white mb-4 p-4' key={movie.id} style={{width: '18rem'}}>
             <Card.Img variant="top" src={BASE_URL + movie.poster_path} className='fluid border-radius-8'/>
             <Card.Body>
               <Card.Title>{movie.title}</Card.Title>

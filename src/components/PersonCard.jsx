@@ -55,23 +55,25 @@ const PersonCard = ({ person }) => {
 				</Col>
 			</Row>
 
-			<Row className="gap-4">
-				{person?.credits.cast.map(castMember => (
-					// <Col className="mh-100" lg={2} xs={6} key={castMember.id}>
-						<Card className="cast-member mb-3 col-2">
-							<Card.Img
-								className="overflow-hidden"
-								variant="top"
-								src={castMember?.poster_path
-									? `${imgUrl}${castMember.poster_path}`
-									: placeholder} 
-								/>
+			<Row>
+				{person?.credits.cast.map(movies => (
+					<Col lg={2} md={3} sm={6}>
+						<Card className="cast-member mb-3" key={movies.id}>
+							<div>
+								<Card.Img
+									className="cast-img"
+									variant="top"
+									src={movies?.poster_path
+										? `${imgUrl}${movies.poster_path}`
+										: placeholder} 
+									/>
+							</div>
 							<Card.Body>
-								<Card.Title>{castMember.original_title}</Card.Title>
-								<Card.Text>{castMember.character}</Card.Text>
+								<Card.Title>{movies.original_title}</Card.Title>
+								<Card.Text>{movies.character}</Card.Text>
 							</Card.Body>
 						</Card>
-					// </Col>
+					</Col>
 				))}
 			</Row>
 		</>
