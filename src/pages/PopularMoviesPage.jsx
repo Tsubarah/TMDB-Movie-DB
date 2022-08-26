@@ -3,6 +3,7 @@ import TMDB from '../services/TMDB'
 import { useQuery } from 'react-query'
 import MoviesList from '../components/MoviesList'
 import { useSearchParams } from 'react-router-dom'
+import LoadingSpinner from '../components/Loading'
 
 const PopularMoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
@@ -15,7 +16,11 @@ const PopularMoviesPage = () => {
 
   return (
     <Container className="py-3">
-      <h1>What's Popular</h1>
+      <h1 className="text-center text-white mb-5 mt-3">What's Popular</h1>
+
+      {isLoading && 
+        <LoadingSpinner />
+      }
 
       {data && 
         <MoviesList 

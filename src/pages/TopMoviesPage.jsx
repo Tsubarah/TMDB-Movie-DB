@@ -4,6 +4,7 @@ import { useQuery } from 'react-query'
 import MoviesList from '../components/MoviesList'
 // import useTopMovies from '../hooks/useTopMovies'
 import { useSearchParams } from 'react-router-dom'
+import LoadingSpinner from '../components/Loading'
 
 const TopMoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
@@ -15,7 +16,11 @@ const TopMoviesPage = () => {
 
   return (
     <Container className="py-3">
-      <h1>Top Rated Movies</h1>
+      <h1 className="text-center text-white mb-5 mt-3">Top Rated Movies</h1>
+
+      {isLoading && 
+        <LoadingSpinner />
+      }
 
       {data && 
         <MoviesList 
@@ -24,7 +29,6 @@ const TopMoviesPage = () => {
           page={page} 
         />
       }
-
     </Container>
   )
 }

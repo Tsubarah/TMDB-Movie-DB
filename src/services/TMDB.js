@@ -8,12 +8,17 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const adultCont = '&include_adult=false';
 
+const FAKE_SLOW_API = false
+const FAKE_SLOW_API_DELAY = 1500
+
 /**
  * Get an endpoint
 */
 const get = async (endpoint) => {
   const res = await axios.get(endpoint)
   // console.log(res.data)
+
+  FAKE_SLOW_API && await new Promise(r => setTimeout(r, FAKE_SLOW_API_DELAY))
 
   return res.data
 }

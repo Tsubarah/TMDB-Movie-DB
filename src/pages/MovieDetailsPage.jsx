@@ -4,7 +4,9 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import useMovie from '../hooks/useMovie'
 import MovieCard from '../components/MovieCard'
-import Container from 'react-bootstrap/esm/Container'
+import Container from 'react-bootstrap/Container'
+import LoadingSpinner from '../components/Loading'
+import ActorsList from '../components/ActorsList'
 
 const MovieDetailsPage = () => {
   const { id } = useParams()
@@ -15,7 +17,14 @@ const MovieDetailsPage = () => {
 
   return (
     <Container className="py-3">
-      {movie && <MovieCard data={movie} />}
+
+      {isLoading && 
+        <LoadingSpinner />
+      }
+
+      {movie && <MovieCard movie={movie} />  }
+      {movie && <ActorsList actors={movie}/>  }
+      
     </Container>
     
   )

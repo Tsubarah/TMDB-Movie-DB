@@ -3,6 +3,7 @@ import TMDB from '../services/TMDB'
 import { useQuery } from 'react-query'
 import MoviesList from '../components/MoviesList'
 import { useSearchParams } from 'react-router-dom'
+import LoadingSpinner from '../components/Loading'
 
 const NowPlayingMoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
@@ -13,7 +14,11 @@ const NowPlayingMoviesPage = () => {
 
   return (
     <Container className="py-3">
-      <h1>New Movies</h1>
+      <h1 className="text-center text-white mb-5 mt-3">New Movies</h1>
+
+      {isLoading && 
+        <LoadingSpinner />
+      }
 
       {data && 
         <MoviesList 

@@ -1,10 +1,11 @@
-// import { Link } from 'react-router-dom'
-// import ListGroup from 'react-bootstrap/ListGroup'
+import { Link } from 'react-router-dom'
 import placeholder from '../../src/assets/images/placeholder_img.webp'
 import moviePlaceholder from '../../src/assets/images/movieImage_placeholder.png'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+// import ListGroup from 'react-bootstrap/ListGroup'
 
 const PersonCard = ({ person }) => {
 	const imgUrl = "https://image.tmdb.org/t/p/original";
@@ -24,11 +25,11 @@ const PersonCard = ({ person }) => {
 					</div>
 				</Col>
 				<Col lg={9}>
-					<div className="person-info h-100 d-flex flex-column justify-content-between">
+					<div className="person-info text-white h-100 d-flex flex-column justify-content-between">
 
 						{/* Person name */}
 						<div className="title-wrapper">
-							<h1 className="mx-2">{person.name}</h1>
+							<h1>{person.name}</h1>
 						</div>
 
 						<div className="d-flex align-content-center">
@@ -58,8 +59,8 @@ const PersonCard = ({ person }) => {
 
 			<Row>
 				{person?.credits.cast.map(movies => (
-					<Col lg={2} md={3} sm={6}>
-						<Card className="cast-member mb-3" key={movies.id}>
+					<Col lg={3} md={3} sm={6} key={movies.id}>
+						<Card className="cast-member mb-3">
 							<div>
 								<Card.Img
 									className="cast-img"
@@ -69,10 +70,20 @@ const PersonCard = ({ person }) => {
 										: moviePlaceholder} 
 									/>
 							</div>
-							<Card.Body>
+							<Card.Body className="text-center">
 								<Card.Title>{movies.original_title}</Card.Title>
 								<Card.Text>{movies.character}</Card.Text>
 							</Card.Body>
+							<div className="p-2 d-flex justify-content-center">
+								<Button 
+									variant="danger" 
+									className="w-100"
+									as={Link}
+									to={`/movie/${movies.id}`}
+								>
+									Read more
+								</Button>
+							</div>
 						</Card>
 					</Col>
 				))}

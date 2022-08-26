@@ -1,12 +1,10 @@
-import Container from 'react-bootstrap/Container'
 import TMDB from '../services/TMDB'
 import { useQuery } from 'react-query'
-// import ListGroup from 'react-bootstrap/ListGroup'
-// import { Link } from 'react-router-dom'
-import Dropdown from 'react-bootstrap/Dropdown';
-// import GenreList from '../components/GenreList'
 import { useSearchParams } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Container from 'react-bootstrap/Container'
 import MoviesList from '../components/MoviesList';
+import LoadingSpinner from '../components/Loading';
 
 const GenresPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1, genre_id: "", })
@@ -22,22 +20,40 @@ const GenresPage = () => {
 
   return (
     <Container className="py-3">
-      <h1>Genres</h1>
 
-      <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Dropdown Button
-        </Dropdown.Toggle>
+      {isLoading && 
+        <LoadingSpinner />
+      }
 
-        <Dropdown.Menu>
-          {genresData?.genres.map(genre => (
-            <Dropdown.Item key={genre.id} onClick={() => {setSearchParams({ genre_id: genre.id })}}>{genre.name}</Dropdown.Item>
-          ))}
-        </Dropdown.Menu>
-      </Dropdown>
-        {isSuccess && (
-          <MoviesList data={data} handlePage={setSearchParams} genre={genre_id} page={page} />
-        )}
+      {data && (
+        <>
+          <h1 className="text-center text-white mb-5">
+            Feel free to choose the genre you wish to watch
+          </h1>
+          
+          <div className="d-flex justify-content-center mb-5">
+            <Dropdown>
+              <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                Choose genre
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                {genresData?.genres.map(genre => (
+                  <Dropdown.Item 
+                    key={genre.id} onClick={() => {setSearchParams({ genre_id: genre.id })}}
+                  >
+                    {genre.name}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+        </>
+      )}
+
+      {genre_id && isSuccess && (
+        <MoviesList data={data} handlePage={setSearchParams} genre={genre_id} page={page} />
+      )}
     </Container>
   )
 }
