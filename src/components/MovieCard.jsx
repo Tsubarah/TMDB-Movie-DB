@@ -1,11 +1,5 @@
-import ListGroup from 'react-bootstrap/ListGroup'
-import { Link } from 'react-router-dom'
-import Card from 'react-bootstrap/Card'
-import placeholder from '../assets/images/placeholder_img.webp'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import ActorsList from './ActorsList'
 
 const MovieCard = ({ movie }) => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/'

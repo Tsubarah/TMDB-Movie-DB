@@ -1,8 +1,6 @@
 import Container from 'react-bootstrap/Container'
-import TMDB from '../services/TMDB'
-import { useQuery } from 'react-query'
 import MoviesList from '../components/MoviesList'
-// import useTopMovies from '../hooks/useTopMovies'
+import useTopMovies from '../hooks/useTopMovies'
 import { useSearchParams } from 'react-router-dom'
 import LoadingSpinner from '../components/Loading'
 
@@ -11,20 +9,19 @@ const TopMoviesPage = () => {
 
   const page = searchParams.get('page')
 
-  const { data, error, isError, isLoading, isSuccess } = useQuery(['top-movies', { page }], TMDB.getTopMovies)
-  // const { data: topMovies, error, isError, isLoading } = useTopMovies()
+  const { data: movies, error, isError, isLoading } = useTopMovies({ page })
 
   return (
     <Container className="py-3">
-      <h1 className="text-center text-white mb-5 mt-3">Top Rated Movies</h1>
+      <h1 className="text-center mb-5 mt-3">Top Rated Movies</h1>
 
       {isLoading && 
         <LoadingSpinner />
       }
 
-      {data && 
+      {movies && 
         <MoviesList 
-          data={data} 
+          data={movies} 
           handlePage={setSearchParams} 
           page={page} 
         />

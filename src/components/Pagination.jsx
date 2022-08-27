@@ -5,6 +5,7 @@ const Pagination = ({ page, handlePage, totalPages, genre }) => {
   return (
     <div className="d-flex justify-content-between db-dark px-4">
       <Button 
+        variant="danger"
         disabled={page <= 1}
         onClick={() => {handlePage({ page: Number(page) - 1, genre_id: genre })}}
       >
@@ -12,6 +13,7 @@ const Pagination = ({ page, handlePage, totalPages, genre }) => {
       </Button>
 
       <Button 
+        variant="danger"
         disabled={page >= totalPages}
         onClick={() => {handlePage({ page: Number(page) + 1, genre_id: genre })}}
       >

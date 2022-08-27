@@ -1,7 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 
 body {
-  background-color: #a11717;
+  background-color: #521414;
 }
 
 .genresList {
@@ -21,8 +21,11 @@ body {
   border-radius: 8px;
 }
 
-.cast-member {
+.cast-movies {
   min-height: 488px;
+  -webkit-box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
+  -moz-box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
+  box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
 }
 
 .cast-img {
@@ -45,11 +48,26 @@ body {
   box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
 }
 
+.primary-btn {
+  background-color: #8b262f;
+  border: 1px solid white;
+}
+
+.actors-details-btn:hover, .primary-btn:hover {
+  background-color: #c31d2c;
+  border: none;
+}
+
 .actors-list-wrapper {
-  background-color: #a11717;
+  background-color: #521414;
   border: none !important;
 }
 
 .actors-details-btn {
-  background-color: #a11717;
+  background-color: #521414;
+  border: 1px solid #ffffffa8;
+}
+
+h1 {
+  color: #ffffffd1;
 }

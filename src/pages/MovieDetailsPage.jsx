@@ -1,6 +1,4 @@
 import React from 'react'
-import TMDB from '../services/TMDB'
-import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import useMovie from '../hooks/useMovie'
 import MovieCard from '../components/MovieCard'
@@ -10,7 +8,7 @@ import ActorsList from '../components/ActorsList'
 
 const MovieDetailsPage = () => {
   const { id } = useParams()
-  // const { data, error, isError, isLoading, isSuccess } = useQuery(['movie', id], TMDB.getMovie)
+
   const { data: movie, error, isError, isLoading } = useMovie(id)
 
   console.log(movie)

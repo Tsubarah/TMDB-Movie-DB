@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-// import ListGroup from 'react-bootstrap/ListGroup'
 
 const PersonCard = ({ person }) => {
 	const imgUrl = "https://image.tmdb.org/t/p/original";
@@ -60,7 +59,7 @@ const PersonCard = ({ person }) => {
 			<Row>
 				{person?.credits.cast.map(movies => (
 					<Col lg={3} md={3} sm={6} key={movies.id}>
-						<Card className="cast-member mb-3">
+						<Card className="cast-movies mb-3">
 							<div>
 								<Card.Img
 									className="cast-img"
@@ -76,8 +75,7 @@ const PersonCard = ({ person }) => {
 							</Card.Body>
 							<div className="p-2 d-flex justify-content-center">
 								<Button 
-									variant="danger" 
-									className="w-100"
+									className="primary-btn w-100"
 									as={Link}
 									to={`/movie/${movies.id}`}
 								>

@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query'
 import TMDB from '../services/TMDB'
 
-const useTopMovies = () => {
-  return useQuery('top-movies', TMDB.getTopMovies)
+const useTopMovies = ({ page }) => {
+  return useQuery(['top-movies', { page }], TMDB.getTopMovies)
 }
 
 export default useTopMovies

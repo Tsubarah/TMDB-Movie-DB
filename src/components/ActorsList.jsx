@@ -10,14 +10,14 @@ const ActorsList = ({ actors }) => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/'
 
   return (
-    <Card className="actors-list-wrapper col-lg-10 m-auto d-flex justify-content-center">
-        <Col lg={6} className="m-auto">
+    <Card className="actors-list-wrapper col-lg-10 m-auto">
+        <Col lg={4}>
           <Card.Body className="justify-content-center">
             <ListGroup>
             <span className="text-white"><strong>Actors:</strong></span>
               {actors?.credits.cast.map(person => (
                 <ListGroup.Item
-                  className="bg-danger"
+                  className="bg-dark"
                   key={person.id}
                 >
                   <div className="d-flex justify-content-between align-items-center">
@@ -31,7 +31,7 @@ const ActorsList = ({ actors }) => {
 
                       <p className="m-auto text-white text-center">{person.name}</p>
 
-                        <Button variant="danger" className="actors-details-btn" as={Link} to={`/person/${person.id}`}>Details</Button>
+                      <Button className="actors-details-btn" as={Link} to={`/person/${person.id}`}>Details</Button>
                   </div>
                 </ListGroup.Item>
               ))}
