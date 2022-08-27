@@ -24,6 +24,10 @@ const GenresPage = () => {
         <LoadingSpinner />
       }
 
+      {isError &&
+        <Error error={error} />
+      }
+
       {data && (
         <>
           <h1 className="text-center mb-5">

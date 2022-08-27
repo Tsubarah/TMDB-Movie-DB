@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom'
 
 const ActorsList = ({ actors }) => {
 
-  const BASE_URL = 'https://image.tmdb.org/t/p/w500/'
+  const imgUrl = 'https://image.tmdb.org/t/p/w500/'
 
+  // ÄNDRA TILL CARDS OCH INTE EN LISTA AV ACTORS
   return (
     <Card className="actors-list-wrapper col-lg-10 m-auto">
         <Col lg={4}>
@@ -25,7 +26,7 @@ const ActorsList = ({ actors }) => {
                         className="cast-image fluid rounded-circle mw-100"
                         alt="" 
                         src={person?.profile_path
-                        ? `${BASE_URL}${person.profile_path}`
+                        ? `${imgUrl}${person.profile_path}`
                         : placeholder} 
                       />
 

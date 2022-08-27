@@ -4,6 +4,10 @@ body {
   background-color: #521414;
 }
 
+h1 {
+  color: white;
+}
+
 .genresList {
   list-style: none;
 }
@@ -19,6 +23,10 @@ body {
   height: auto;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.person-description {
+  color: #ffffffb5;
 }
 
 .cast-movies {
@@ -42,7 +50,7 @@ body {
   max-width: 1400px;
 }
 
-.movie-card {
+.movie-card, .movie-img {
   -webkit-box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
   -moz-box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
   box-shadow: -1px 11px 17px -1px rgba(0,0,0,0.51);
@@ -68,6 +76,3 @@ body {
   border: 1px solid #ffffffa8;
 }
 
-h1 {
-  color: #ffffffd1;
-}

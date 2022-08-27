@@ -9,10 +9,11 @@ const MovieCard = ({ movie }) => {
 	return (
     <>
       <Row className="m-auto mb-4 text-white d-flex col-lg-10 col-md-8 col-sm-6">
+        {/* Movie poster */}
         <Col lg={4} sm={12}>
           <div>
             <img 
-              className="img-fluid"
+              className="movie-img img-fluid"
               variant="top" 
               src={movie?.poster_path
                 ? `${imgUrl}${movie?.poster_path}`
@@ -21,22 +22,30 @@ const MovieCard = ({ movie }) => {
             />
           </div>
         </Col>
+
+        {/* Movie description */}
         <Col lg={8}>
           <h1>{movie.title}</h1>
+
+          {/* Displays if there's a release date */}
           {movie.release_date 
             ?  <p><span className="fw-bold">Released:</span> {movie.release_date}</p>
             : ""
           }
-
+          
+          {/* Displays if there's an overview */}
           {movie.overview
             ? <p><span className="fw-bold">Overview:</span> {movie.overview}</p>
             : ""
           }
-          
+
+          {/* Displays if there's genres */}
           {movie.genres.length !== 0 
             ? <p><span className="fw-bold">Genres:</span></p>
             : ""
           }
+
+          {/* List of genres if there are */}
           <div className="genresList d-flex">
             {movie?.genres.map(genre => (
               <li 
