@@ -16,32 +16,23 @@ const FAKE_SLOW_API_DELAY = 1500
 */
 const get = async (endpoint) => {
   const res = await axios.get(endpoint)
-  // console.log(res.data)
 
   FAKE_SLOW_API && await new Promise(r => setTimeout(r, FAKE_SLOW_API_DELAY))
 
   return res.data
 }
 
-// export const getMovie = ({ queryKey }) => {
-//   const [_key, { id }] = queryKey
-//   return get(`/movie/${id}?api_key=${API_KEY}&language=en-US`)
-// }
-
-
-// GÖR OM ALLA TILL ASYNC / AWAIT
-
 const getMovie = (id) => {
   return get(`/movie/${id}?api_key=${API_KEY}${adultCont}&append_to_response=credits`)
 }
 
 const getPerson = (id) => {
-  return get(`/person/${id}?api_key=${API_KEY}&append_to_response=credits`)
+  return get(`/person/${id}?api_key=${API_KEY}${adultCont}&append_to_response=credits`)
 }
 
 const getPopularMovies = ({ queryKey }) => {
   const [_key, { page }] = queryKey
-  return get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}${adultCont}`)
+  return get(`/movie/popular?api_key=${API_KEY}${adultCont}&language=en-US&page=${page}`)
 }
 
 const discoverMovies = async ({ queryKey }) => {
@@ -63,13 +54,8 @@ const getCinemaMovies = ({ queryKey }) => {
 
 const getAllGenres = ({ queryKey }) => {
   const [_key] = queryKey
-  return get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+  return get(`/genre/movie/list?api_key=${API_KEY}${adultCont}&language=en-US`)
 }
-
-// const getPerson = ({ queryKey }) => {
-//   const [_key, { id }] = queryKey
-//   return get(`/person/${id}?api_key${API_KEY}&language=en-US`)
-// }
 
 export default {
   getMovie,

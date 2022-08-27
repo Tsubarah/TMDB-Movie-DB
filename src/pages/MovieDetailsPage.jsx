@@ -5,6 +5,7 @@ import MovieCard from '../components/MovieCard'
 import Container from 'react-bootstrap/Container'
 import LoadingSpinner from '../components/Loading'
 import ActorsList from '../components/ActorsList'
+import Error from '../components/Error'
 
 const MovieDetailsPage = () => {
   const { id } = useParams()
@@ -20,8 +21,16 @@ const MovieDetailsPage = () => {
         <LoadingSpinner />
       }
 
-      {movie && <MovieCard movie={movie} />  }
-      {movie && <ActorsList actors={movie}/>  }
+      {isError &&
+        <Error error={error} />
+      }
+
+      {movie && 
+        <>
+          <MovieCard movie={movie} />
+          <ActorsList actors={movie} />
+        </>
+      }
       
     </Container>
     

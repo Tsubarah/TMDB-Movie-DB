@@ -1,10 +1,10 @@
 import { useSearchParams } from 'react-router-dom';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Container from 'react-bootstrap/Container'
 import MoviesList from '../components/MoviesList';
 import LoadingSpinner from '../components/Loading';
 import useAllGenres from '../hooks/useAllGenres';
 import useGenre from '../hooks/useGenre';
+import DropDownList from '../components/DropDownList';
 
 const GenresPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1, genre_id: "", })
@@ -27,31 +27,17 @@ const GenresPage = () => {
       {data && (
         <>
           <h1 className="text-center mb-5">
-            Feel free to choose the genre you wish to watch
+            Choose your desired genre
           </h1>
           
           <div className="d-flex justify-content-center mb-5">
-            <Dropdown>
-              <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                Choose genre
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                {genresData?.genres.map(genre => (
-                  <Dropdown.Item 
-                    key={genre.id} onClick={() => {setSearchParams({ genre_id: genre.id })}}
-                  >
-                    {genre.name}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
+            <DropDownList genresData={genresData} handleGenre={setSearchParams}/>
           </div>
         </>
       )}
 
       {genre_id && isSuccess && (
-        <MoviesList data={data} handlePage={setSearchParams} genre={genre_id} page={page} />
+        <MoviesList movies={data} handlePage={setSearchParams} genre={genre_id} page={page} />
       )}
     </Container>
   )

@@ -1,8 +1,9 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import moviePlaceholder from '../../src/assets/images/movieImage_placeholder.png'
 
 const MovieCard = ({ movie }) => {
-  const BASE_URL = 'https://image.tmdb.org/t/p/w500/'
+  const imgUrl = "https://image.tmdb.org/t/p/w500/"
 
   console.log(movie)
 	return (
@@ -13,15 +14,29 @@ const MovieCard = ({ movie }) => {
             <img 
               className="img-fluid"
               variant="top" 
-              src={BASE_URL + movie.poster_path}  
+              src={movie?.poster_path
+                ? `${imgUrl}${movie?.poster_path}`
+                : moviePlaceholder
+              }
             />
           </div>
         </Col>
         <Col lg={8}>
           <h1>{movie.title}</h1>
-          <p><span className="fw-bold">Released:</span> {movie.release_date}</p>
-          <p><span className="fw-bold">Overview:</span> {movie.overview}</p>
-          <p><span className="fw-bold">Genres:</span></p>
+          {movie.release_date 
+            ?  <p><span className="fw-bold">Released:</span> {movie.release_date}</p>
+            : ""
+          }
+
+          {movie.overview
+            ? <p><span className="fw-bold">Overview:</span> {movie.overview}</p>
+            : ""
+          }
+          
+          {movie.genres.length !== 0 
+            ? <p><span className="fw-bold">Genres:</span></p>
+            : ""
+          }
           <div className="genresList d-flex">
             {movie?.genres.map(genre => (
               <li 

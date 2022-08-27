@@ -57,8 +57,8 @@ const PersonCard = ({ person }) => {
 			</Row>
 
 			<Row>
-				{person?.credits.cast.map(movies => (
-					<Col lg={3} md={3} sm={6} key={movies.id}>
+				{person?.credits.cast.map((movies, i) => (
+					<Col lg={3} md={3} sm={6} key={i}>
 						<Card className="cast-movies mb-3">
 							<div>
 								<Card.Img

@@ -3,6 +3,7 @@ import MoviesList from '../components/MoviesList'
 import { useSearchParams } from 'react-router-dom'
 import LoadingSpinner from '../components/Loading'
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
+import Error from '../components/Error'
 
 const NowPlayingMoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
@@ -19,9 +20,13 @@ const NowPlayingMoviesPage = () => {
         <LoadingSpinner />
       }
 
+      {isError &&
+        <Error error={error} />
+      }
+
       {movies && 
         <MoviesList 
-          data={movies}
+          movies={movies}
           handlePage={setSearchParams}
           page={page}
         />

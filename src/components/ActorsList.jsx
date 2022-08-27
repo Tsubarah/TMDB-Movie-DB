@@ -15,10 +15,10 @@ const ActorsList = ({ actors }) => {
           <Card.Body className="justify-content-center">
             <ListGroup>
             <span className="text-white"><strong>Actors:</strong></span>
-              {actors?.credits.cast.map(person => (
+              {actors?.credits.cast.map((person, i) => (
                 <ListGroup.Item
                   className="bg-dark"
-                  key={person.id}
+                  key={i}
                 >
                   <div className="d-flex justify-content-between align-items-center">
                       <img 
