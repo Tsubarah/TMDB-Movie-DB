@@ -28,7 +28,6 @@ const MovieDetailsPage = () => {
       {movie && 
         <>
           <MovieCard movie={movie} />
-          <ActorsList actors={movie} />
         </>
       }
       
