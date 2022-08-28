@@ -1,7 +1,5 @@
-import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-import Col from 'react-bootstrap/esm/Col'
 import placeholder from '../assets/images/placeholder_img.webp'
 import { Link } from 'react-router-dom'
 

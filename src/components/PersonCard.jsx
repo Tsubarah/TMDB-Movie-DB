@@ -15,9 +15,9 @@ const PersonCard = ({ person }) => {
 		<>
 			<Row className="pb-5">
 				{/* Image of the person */}
-				<Col lg={3} md={6} sm={8} xs={10} className="m-auto">
+				<Col lg={3} md={6} sm={8} xs={12} className="mx-auto">
 						<img 
-							className="img-fluid" 
+							className="img-fluid mb-4" 
 							src={person?.profile_path 
 								? `${imgUrl}${person?.profile_path}` 
 								: placeholder} 
@@ -38,14 +38,14 @@ const PersonCard = ({ person }) => {
 							{person?.birthday && (
 								<p>
 									Born:{" "}
-									<span className="person-description">
+									<span className="description">
 										{person?.birthday}
 
 										{person?.place_of_birth && (
 											<span>
 												{" "}
 												in 
-												<span className="person-description">
+												<span className="description">
 													{person?.place_of_birth}
 												</span>
 											</span>
@@ -58,8 +58,8 @@ const PersonCard = ({ person }) => {
 						{/* Person biography */}
 						{person.biography  
 							? <div>
-									<h3>Biography:</h3>
-									<p className="person-description fs-5">{person.biography}</p>
+									<h3>Biography</h3>
+									<p className="description fs-5">{person.biography}</p>
 								</div>
 							: ""
 						}

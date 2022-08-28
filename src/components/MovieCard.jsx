@@ -12,16 +12,14 @@ const MovieCard = ({ movie }) => {
       <Row className="m-auto mb-4 text-white d-flex col-lg-10 col-md-8 col-sm-6">
         {/* Movie poster */}
         <Col lg={4} sm={12}>
-          <div>
             <img 
-              className="movie-img img-fluid"
+              className="movie-img img-fluid mb-4"
               variant="top" 
               src={movie?.poster_path
                 ? `${imgUrl}${movie?.poster_path}`
                 : moviePlaceholder
               }
             />
-          </div>
         </Col>
 
         {/* Movie description */}
@@ -30,19 +28,19 @@ const MovieCard = ({ movie }) => {
 
           {/* Displays if there's a release date */}
           {movie.release_date 
-            ?  <p><span className="fw-bold">Released:</span> {movie.release_date}</p>
+            ?  <p className="fs-5">Released: <span className="description">{movie.release_date}</span></p>
             : ""
           }
           
           {/* Displays if there's an overview */}
           {movie.overview
-            ? <p><span className="fw-bold">Overview:</span> {movie.overview}</p>
+            ? <p className="fs-5">Overview: <span className="description">{movie.overview}</span></p>
             : ""
           }
 
           {/* Displays if there's genres */}
           {movie.genres.length !== 0 
-            ? <p><span className="fw-bold">Genres:</span></p>
+            ? <p className="fs-5 mb-0">Genres:</p>
             : ""
           }
 
@@ -50,10 +48,10 @@ const MovieCard = ({ movie }) => {
           <div className="genresList d-flex">
             {movie?.genres.map(genre => (
               <li 
-                className="p-2"
+                className="p-2 fs-5"
                 key={genre.id}
               >
-                <p>{genre.name}</p>
+                <p className="description">{genre.name}</p>
               </li>
             ))}
           </div>

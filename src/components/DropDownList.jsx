@@ -3,11 +3,18 @@ import Dropdown from 'react-bootstrap/Dropdown';
 const DropDownList = ({ genresData, handleGenre }) => {
   return (
     <Dropdown>
-      <Dropdown.Toggle variant="dark" id="dropdown-basic">
+      <Dropdown.Toggle 
+        className="px-4 fs-5" 
+        variant="dark" 
+        id="dropdown-basic"
+      >
         Choose genre
       </Dropdown.Toggle>
 
-      <Dropdown.Menu>
+      <Dropdown.Menu 
+        variant="dark" 
+        align="end"
+      >
         {genresData?.genres.map(genre => (
           <Dropdown.Item 
             key={genre.id} onClick={() => {handleGenre({ genre_id: genre.id })}}
