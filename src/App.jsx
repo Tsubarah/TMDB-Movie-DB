@@ -14,7 +14,6 @@ import './assets/scss/App.scss'
 function App() {
 	return (
 		<div id="App">
-			<h1>lol</h1>
 			<Navigation />
 
 			<Routes>

@@ -28,7 +28,7 @@ const MoviesList = ({ movies, handlePage, page, genre }) => {
             <Card.Img 
               variant="top" 
               src={imgUrl + movie.poster_path} 
-              className='fluid border-radius-8'/>
+              className='movie-list-image fluid border-radius-8'/>
 
             <Card.Body>
               <Card.Title>{movie.title}</Card.Title>

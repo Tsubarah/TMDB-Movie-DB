@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container'
-import CarouselGallery from '../components/CarouselGallery'
+import Carousel from '../components/Carousel'
 import usePopularMovies from '../hooks/usePopularMovies'
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 import useTopMovies from '../hooks/useTopMovies'
@@ -20,26 +20,26 @@ const HomePage = () => {
 	return (
 		<Container className="py-3">
 			<h1>Movie Time!</h1>
-			<p className="text-white fs-4 pb-5">Tired of the same old movies? Then you've come to the right place. Here you can find everything between the most recent movies in the Cinema to top rated ones.</p>
+			<p className="text-white fs-4 pt-5">Tired of the same old movies? Then you've come to the right place. Here you can find everything between the most recent movies in the Cinema to top rated ones.</p>
 
 			{popularMovies && 
 				<>
-					<h1 className="text-center pb-3">Popular Movies</h1>
-					<CarouselGallery movies={popularMovies} />
+					<h1 className="text-center pt-5">Popular Movies</h1>
+					<Carousel movies={popularMovies} />
 				</>
 			}
 
 			{nowPlayingMovies &&
 				<>
-					<h1 className="text-center pb-3">In the Cinema</h1>
-					<CarouselGallery movies={nowPlayingMovies} />
+					<h1 className="text-center pt-5">In the Cinema</h1>
+					<Carousel movies={nowPlayingMovies} />
 				</>
 			}
 
 			{topMovies &&
 				<>
-					<h1 className="text-center pb-3">Top rated</h1>
-					<CarouselGallery movies={topMovies} />
+					<h1 className="text-center pt-5">Top rated</h1>
+					<Carousel movies={topMovies} />
 				</>
 			}
 		</Container>
