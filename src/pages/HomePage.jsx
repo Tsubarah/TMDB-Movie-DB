@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container'
-import CarouselGallery from '../components/CarouselGallery'
+// import CarouselGallery from '../components/CarouselGallery'
 import usePopularMovies from '../hooks/usePopularMovies'
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 import useTopMovies from '../hooks/useTopMovies'
@@ -25,21 +25,21 @@ const HomePage = () => {
 			{popularMovies && 
 				<>
 					<h1 className="text-center pb-3">Popular Movies</h1>
-					<CarouselGallery movies={popularMovies} />
+					{/* <CarouselGallery movies={popularMovies} /> */}
 				</>
 			}
 
 			{nowPlayingMovies &&
 				<>
 					<h1 className="text-center pb-3">In the Cinema</h1>
-					<CarouselGallery movies={nowPlayingMovies} />
+					{/* <CarouselGallery movies={nowPlayingMovies} /> */}
 				</>
 			}
 
 			{topMovies &&
 				<>
 					<h1 className="text-center pb-3">Top rated</h1>
-					<CarouselGallery movies={topMovies} />
+					{/* <CarouselGallery movies={topMovies} /> */}
 				</>
 			}
 		</Container>
