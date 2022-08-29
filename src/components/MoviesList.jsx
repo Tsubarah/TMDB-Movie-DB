@@ -7,14 +7,27 @@ import Row from 'react-bootstrap/Row'
 
 const MoviesList = ({ movies, handlePage, page, genre }) => {
 
-  const BASE_URL = 'https://image.tmdb.org/t/p/w500/'
+  const imgUrl = 'https://image.tmdb.org/t/p/w500/'
   console.log(movies)
   return (
     <div>
       <Row className='gap-4 justify-content-center'>
         {movies?.results.map(movie => (
-          <Card className='movie-card text-center col-lg-3 col-md-4 col-sm-6 col-xs-12 bg-dark text-white mb-4 p-4' key={movie.id} style={{width: '18rem'}}>
-            <Card.Img variant="top" src={BASE_URL + movie.poster_path} className='fluid border-radius-8'/>
+          <Card 
+            className='movie-card 
+                      text-center 
+                      col-lg-3 
+                      col-md-4 
+                      col-sm-6 
+                      col-xs-12 
+                      bg-dark 
+                      text-white 
+                      mb-4 
+                      p-4' 
+            key={movie.id} 
+            style={{width: '18rem'}}
+          >
+            <Card.Img variant="top" src={imgUrl + movie.poster_path} className='fluid border-radius-8'/>
             <Card.Body>
               <Card.Title>{movie.title}</Card.Title>
               <Card.Text>
