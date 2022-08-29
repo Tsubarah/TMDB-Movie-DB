@@ -33,7 +33,7 @@ const GenresPage = () => {
           </h1>
           
           <div className="d-flex justify-content-center mb-5">
-            <DropDownList genresData={genresData} genre={genre_id} handleGenre={setSearchParams} />
+            <DropDownList genresData={genresData} genre_id={genre_id} handleGenre={setSearchParams} />
           </div>
         </>
       )}

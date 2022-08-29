@@ -1,6 +1,13 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 
-const DropDownList = ({ genresData, genre, handleGenre }) => {
+const DropDownList = ({ genresData, genre_id, handleGenre }) => {
+  let currentGenre;
+
+  genresData?.genres.find(genre => {
+    if (genre.id === Number(genre_id)) {
+        currentGenre = `${genre.name}`;
+    }
+});
 
   return (    
     <Dropdown>
@@ -9,7 +16,9 @@ const DropDownList = ({ genresData, genre, handleGenre }) => {
         variant="dark" 
         id="dropdown-basic"
         >
-        Choose genre
+        {currentGenre 
+          ? currentGenre 
+          : 'Choose Genre'}
       </Dropdown.Toggle>
 
       <Dropdown.Menu 
