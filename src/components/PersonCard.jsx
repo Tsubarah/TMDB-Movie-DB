@@ -44,7 +44,8 @@ const PersonCard = ({ person }) => {
 										{person?.place_of_birth && (
 											<span>
 												{" "}
-												in 
+												in
+												{" "} 
 												<span className="description">
 													{person?.place_of_birth}
 												</span>

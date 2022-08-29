@@ -24,11 +24,16 @@ const MovieCard = ({ movie }) => {
 
         {/* Movie description */}
         <Col lg={8}>
-          <h1>{movie.title}</h1>
+          <h1>{movie.title} <span className="description fs-2">({Math.round(movie.vote_average * 10) / 10})</span></h1>
+
+          {/* {movie.vote_average
+            ? <p className="fs-4">Rating: <span className="description">{Math.round(movie.vote_average * 10) / 10}</span></p>
+            : ""
+          } */}
 
           {/* Displays if there's a release date */}
           {movie.release_date 
-            ?  <p className="fs-5">Released: <span className="description">{movie.release_date}</span></p>
+            ?  <p className="fs-5 pt-3">Released: <span className="description">{movie.release_date}</span></p>
             : ""
           }
           
@@ -45,13 +50,13 @@ const MovieCard = ({ movie }) => {
           }
 
           {/* List of genres if there are */}
-          <div className="genresList d-flex">
+          <div className="genresList d-flex flex-wrap">
             {movie?.genres.map(genre => (
               <li 
-                className="p-2 fs-5"
+                className="px-2 pb-2 fs-5"
                 key={genre.id}
               >
-                <p className="description">{genre.name}</p>
+                <p className="description mb-0">{genre.name}</p>
               </li>
             ))}
           </div>

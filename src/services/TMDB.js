@@ -23,7 +23,7 @@ const get = async (endpoint) => {
 }
 
 const getMovie = (id) => {
-  return get(`/movie/${id}?api_key=${API_KEY}${adultCont}&append_to_response=credits`)
+  return get(`/movie/${id}?api_key=${API_KEY}${adultCont}&append_to_response=credits, vote_average`)
 }
 
 const getPerson = (id) => {
