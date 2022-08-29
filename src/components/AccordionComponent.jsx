@@ -1,11 +1,7 @@
 import Accordion from 'react-bootstrap/Accordion'
 import ActorsList from './ActorsList'
 
-function BasicExample({ data }) {
-
-  const imgUrl = 'https://image.tmdb.org/t/p/w500/'
-
-  console.log(data)
+function AccordionComponent ({ data }) {
 
   return (
     <Accordion className="col-lg-4">
@@ -19,4 +15,4 @@ function BasicExample({ data }) {
   );
 }
 
-export default BasicExample;
+export default AccordionComponent;

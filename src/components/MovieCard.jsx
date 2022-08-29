@@ -1,7 +1,7 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import moviePlaceholder from '../../src/assets/images/movieImage_placeholder.png'
-import Accordion from './Accordion'
+import AccordionComponent from './AccordionComponent'
 
 const MovieCard = ({ movie }) => {
   const imgUrl = "https://image.tmdb.org/t/p/w500/"
@@ -71,7 +71,7 @@ const MovieCard = ({ movie }) => {
           </div>
         </Col>
         {movie &&  
-          <Accordion data={movie} />
+          <AccordionComponent data={movie} />
         }
       </Row>
     </>

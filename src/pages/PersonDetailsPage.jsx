@@ -11,9 +11,6 @@ const PersonDetailsPage = () => {
 
   const { data: person, error, isError, isLoading } = usePerson(id)
 
-  console.log(error)
-
-  console.log(person)
   return (
     <Container className="py-3">
 

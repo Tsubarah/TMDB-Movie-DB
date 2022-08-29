@@ -12,8 +12,6 @@ const PopularMoviesPage = () => {
 
   const { data: movies, error, isError, isLoading } = usePopularMovies({ page })
 
-  console.log(movies)
-
   return (
     <Container className="py-3">
       <h1 className="text-center mb-5 mt-3">What's Popular</h1>

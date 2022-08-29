@@ -11,8 +11,6 @@ const MovieDetailsPage = () => {
 
   const { data: movie, error, isError, isLoading } = useMovie(id)
 
-  console.log(movie)
-
   return (
     <Container className="py-3">
 

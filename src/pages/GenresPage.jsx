@@ -15,8 +15,6 @@ const GenresPage = () => {
 
   const { data, error, isError, isLoading, isSuccess } = useGenre({ page, genre_id })
 
-  console.log(data)
-
   return (
     <Container className="py-3">
 
