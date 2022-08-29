@@ -1,13 +1,14 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 
-const DropDownList = ({ genresData, handleGenre }) => {
-  return (
+const DropDownList = ({ genresData, genre, handleGenre }) => {
+
+  return (    
     <Dropdown>
       <Dropdown.Toggle 
         className="px-4 fs-5" 
         variant="dark" 
         id="dropdown-basic"
-      >
+        >
         Choose genre
       </Dropdown.Toggle>
 

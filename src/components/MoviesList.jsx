@@ -8,7 +8,6 @@ import Row from 'react-bootstrap/Row'
 const MoviesList = ({ movies, handlePage, page, genre }) => {
 
   const imgUrl = 'https://image.tmdb.org/t/p/w500/'
-  console.log(movies)
   
   return (
     <div>
