@@ -14,7 +14,8 @@ import './assets/scss/App.scss'
 function App() {
 	return (
 		<div id="App">
-			<Navigation />
+			<h1>lol</h1>
+			{/* <Navigation />
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
@@ -25,7 +26,7 @@ function App() {
 				<Route path="/genres" element={<GenresPage />} />
 				<Route path="/movie/:id" element={<MovieDetailsPage />} />
 				<Route path="/person/:id" element={<PersonDetailsPage />} />
-			</Routes>
+			</Routes> */}
 
 			<ReactQueryDevtools />
 		</div>
