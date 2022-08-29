@@ -27,7 +27,7 @@ const getMovie = (id) => {
 }
 
 const getPerson = (id) => {
-  return get(`/person/${id}?api_key=${API_KEY}${adultCont}&append_to_response=credits`)
+  return get(`/person/${id}?api_key=${API_KEY}&append_to_response=credits`)
 }
 
 const getPopularMovies = ({ queryKey }) => {
@@ -35,7 +35,7 @@ const getPopularMovies = ({ queryKey }) => {
   return get(`/movie/popular?api_key=${API_KEY}${adultCont}&language=en-US&page=${page}`)
 }
 
-const discoverMovies = async ({ queryKey }) => {
+const discoverMovies = ({ queryKey }) => {
   const [_key, { page, genre_id }] = queryKey;
   return get(
       `/discover/movie?api_key=${API_KEY}&language=en-US&popularity.desc${adultCont}&page=${page}&with_genres=${genre_id}`
@@ -54,7 +54,7 @@ const getCinemaMovies = ({ queryKey }) => {
 
 const getAllGenres = ({ queryKey }) => {
   const [_key] = queryKey
-  return get(`/genre/movie/list?api_key=${API_KEY}${adultCont}&language=en-US`)
+  return get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
 }
 
 export default {

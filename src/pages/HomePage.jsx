@@ -10,11 +10,11 @@ const HomePage = () => {
 
   const page = searchParams.get('page')
 
-	const { data: popularMovies, error, isError, isLoading } = usePopularMovies({ page })
+	const { data: popularMovies, error: popularError, isError: isErrorPopular, isLoading: isLoadingPopular } = usePopularMovies({ page })
 
-	const { data: nowPlayingMovies } = useNowPlayingMovies({ page })
+	const { data: nowPlayingMovies, error: nowPlayingError, isError: isErrorNowPlaying, isLoading: isLoadingNowPlaying } = useNowPlayingMovies({ page })
 
-	const { data: topMovies } = useTopMovies({ page })
+	const { data: topMovies, error: topError, isError: isErrorTop, isLoading: isLoadingTop } = useTopMovies({ page })
 	
 
 	return (
@@ -36,7 +36,7 @@ const HomePage = () => {
 				</>
 			}
 
-			{nowPlayingMovies &&
+			{topMovies &&
 				<>
 					<h1 className="text-center pb-3">Top rated</h1>
 					<CarouselGallery movies={topMovies} />
