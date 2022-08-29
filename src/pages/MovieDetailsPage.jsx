@@ -4,7 +4,6 @@ import useMovie from '../hooks/useMovie'
 import MovieCard from '../components/MovieCard'
 import Container from 'react-bootstrap/Container'
 import LoadingSpinner from '../components/Loading'
-import ActorsList from '../components/ActorsList'
 import Error from '../components/Error'
 
 const MovieDetailsPage = () => {

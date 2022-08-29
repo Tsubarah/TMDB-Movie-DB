@@ -17,7 +17,6 @@ const ActorsList = ({ actors }) => {
           <div className="d-flex justify-content-between align-items-center">
               <img 
                 className="cast-image fluid rounded-circle mw-100"
-                alt="" 
                 src={person?.profile_path
                 ? `${imgUrl}${person.profile_path}`
                 : placeholder} 
@@ -25,7 +24,14 @@ const ActorsList = ({ actors }) => {
 
               <p className="m-auto text-white text-center">{person.name}</p>
 
-              <Button className="actors-details-btn" as={Link} to={`/person/${person.id}`}>Details</Button>
+              <Button 
+                className="actors-details-btn" 
+                as={Link} 
+                to={`/person/${person.id}`}
+              >
+                Details
+              </Button>
+
           </div>
         </ListGroup.Item>
       ))}

@@ -6,10 +6,9 @@ import Accordion from './Accordion'
 const MovieCard = ({ movie }) => {
   const imgUrl = "https://image.tmdb.org/t/p/w500/"
 
-  console.log(movie)
 	return (
     <>
-      <Row className="m-auto mb-4 text-white d-flex col-lg-10 col-md-8 col-sm-6">
+      <Row className="m-auto mb-4 text-white d-flex">
         {/* Movie poster */}
         <Col lg={4} sm={12}>
             <img 
@@ -24,22 +23,32 @@ const MovieCard = ({ movie }) => {
 
         {/* Movie description */}
         <Col lg={8}>
-          <h1>{movie.title} <span className="description fs-2">({Math.round(movie.vote_average * 10) / 10})</span></h1>
-
-          {/* {movie.vote_average
-            ? <p className="fs-4">Rating: <span className="description">{Math.round(movie.vote_average * 10) / 10}</span></p>
-            : ""
-          } */}
+          <h1>
+            {movie.title} 
+            <span className="description fs-2">
+              ({Math.round(movie.vote_average * 10) / 10})
+            </span>
+          </h1>
 
           {/* Displays if there's a release date */}
           {movie.release_date 
-            ?  <p className="fs-5 pt-3">Released: <span className="description">{movie.release_date}</span></p>
+            ?   <p className="fs-5 pt-3">
+                  Released: 
+                  <span className="description">
+                    {movie.release_date}
+                  </span>
+                </p>
             : ""
           }
           
           {/* Displays if there's an overview */}
           {movie.overview
-            ? <p className="fs-5">Overview: <span className="description">{movie.overview}</span></p>
+            ? <p className="fs-5">
+                Overview: 
+                <span className="description">
+                  {movie.overview}
+                </span>
+              </p>
             : ""
           }
 

@@ -8,8 +8,6 @@ import Button from 'react-bootstrap/Button'
 
 const PersonCard = ({ person }) => {
 	const imgUrl = "https://image.tmdb.org/t/p/original";
-
-	console.log(person)
 	
 	return (
 		<>
