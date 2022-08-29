@@ -57,6 +57,11 @@ const getAllGenres = ({ queryKey }) => {
   return get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
 }
 
+const search = ({ queryKey }) => {
+  const [_key, { query, page }] = queryKey
+  return get(`search/movie?api_key=${API_KEY}&query=${query}&page=${page}${adultCont}`)
+}
+
 export default {
   getMovie,
   getPopularMovies,
@@ -65,4 +70,5 @@ export default {
   getAllGenres,
   getPerson,
   discoverMovies,
+  search,
 }

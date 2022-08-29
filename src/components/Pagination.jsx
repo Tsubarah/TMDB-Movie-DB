@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
 
-const Pagination = ({ page, handlePage, totalPages, genre }) => {
+const Pagination = ({ page, handlePage, totalPages, genre, query }) => {
 
   {/* Scrolls the view to top */}
   useEffect(() => {
@@ -13,7 +13,7 @@ const Pagination = ({ page, handlePage, totalPages, genre }) => {
       <Button 
         variant="dark"
         disabled={page <= 1}
-        onClick={() => {handlePage({ page: Number(page) - 1, genre_id: genre })}}
+        onClick={() => {handlePage({ page: Number(page) - 1, genre_id: genre, query: query })}}
       >
         Back
       </Button>
@@ -21,7 +21,7 @@ const Pagination = ({ page, handlePage, totalPages, genre }) => {
       <Button 
         variant="dark"
         disabled={page >= totalPages}
-        onClick={() => {handlePage({ page: Number(page) + 1, genre_id: genre })}}
+        onClick={() => {handlePage({ page: Number(page) + 1, genre_id: genre, query: query })}}
       >
         Next
       </Button>

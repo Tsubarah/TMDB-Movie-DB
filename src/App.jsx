@@ -9,6 +9,7 @@ import PopularMoviesPage from './pages/PopularMoviesPage'
 import GenresPage from './pages/GenresPage'
 import MovieDetailsPage from './pages/MovieDetailsPage'
 import PersonDetailsPage from './pages/PersonDetailsPage'
+import SearchPage from './pages/SearchPage'
 import './assets/scss/App.scss'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
+				<Route path="/search" element={<SearchPage />} />
 				<Route path="*" element={<NotFound />} />
 				<Route path="/news" element={<NowPlayingMoviesPage />} />
 				<Route path="/top-rated" element={<TopMoviesPage />} />

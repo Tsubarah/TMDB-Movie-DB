@@ -5,7 +5,7 @@ import Pagination from './Pagination'
 import Row from 'react-bootstrap/Row'
 
 
-const MoviesList = ({ movies, handlePage, page, genre }) => {
+const MoviesList = ({ movies, handlePage, page, genre, query }) => {
 
   const imgUrl = 'https://image.tmdb.org/t/p/w500/'
   
@@ -48,10 +48,11 @@ const MoviesList = ({ movies, handlePage, page, genre }) => {
         ))}
       </Row>
       <Pagination 
-        page={page} 
+        page={Number(page)} 
         handlePage={handlePage} 
         genre={genre} 
         totalPages={movies.total_pages} 
+        query={query}
       />
     </div>
   )
