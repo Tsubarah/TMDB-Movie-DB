@@ -8,32 +8,38 @@ const CarouselGallery = ({ movies }) => {
 
   const imgUrl = 'https://image.tmdb.org/t/p/w500/'
 
-  const options = [
-    {
-      breakpoint: 800,
-      cols: 2,
-      rows: 1,
-      gap: 8,
-    },
-    {
-      breakpoint: 1100,
-      cols: 3,
-      rows: 1,
-      gap: 8,
-    },
-  ]
+  // const options = [
+  //   {
+  //     breakpoint: 800,
+  //     cols: 2,
+  //     rows: 1,
+  //     gap: 8,
+  //   },
+  //   {
+  //     breakpoint: 1100,
+  //     cols: 3,
+  //     rows: 1,
+  //     gap: 8,
+  //   },
+  // ]
 
   return (
     <>
-      {movies && (
+      {/* {movies && ( */}
         <div className="pb-5 m-auto">
           <Carousel 
             cols={4} 
             rows={1} gap={2} 
-            mobileBreakpoint={500} 
-            responsiveLayout={options}
+            // mobileBreakpoint={500} 
+            // responsiveLayout={options}
           >
-            {movies?.results?.map((movie, i) => (
+            <Carousel.Item>
+              <h1>lala</h1>
+            </Carousel.Item>
+            <Carousel.Item>
+              <h1>lala</h1>
+            </Carousel.Item>
+            {/* {movies?.results?.map((movie, i) => (
               <Carousel.Item key={i}>
                 <Card 
                   className='movie-card 
@@ -73,10 +79,10 @@ const CarouselGallery = ({ movies }) => {
 
                 </Card>
               </Carousel.Item>
-            ))}
+            ))} */}
           </Carousel>
         </div>
-      )}
+      {/* )} */}
     </>
   )
 }
